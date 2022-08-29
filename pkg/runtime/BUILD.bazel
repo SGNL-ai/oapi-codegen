@@ -1,0 +1,31 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "runtime",
+    srcs = [
+        "bind.go",
+        "bindparam.go",
+        "bindstring.go",
+        "deepobject.go",
+        "styleparam.go",
+    ],
+    importpath = "github.com/sgnl-ai/sgnl/pkg/runtime",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_deepmap_oapi_codegen//pkg/types:go_default_library"],
+)
+
+go_test(
+    name = "runtime_test",
+    srcs = [
+        "bindparam_test.go",
+        "bindstring_test.go",
+        "deepobject_test.go",
+        "styleparam_test.go",
+    ],
+    embed = [":runtime"],
+    deps = [
+        "@com_github_deepmap_oapi_codegen//pkg/types:go_default_library",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

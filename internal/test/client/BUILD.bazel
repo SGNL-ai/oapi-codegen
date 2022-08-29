@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "client",
+    srcs = [
+        "client.gen.go",
+        "doc.go",
+    ],
+    importpath = "github.com/sgnl-ai/sgnl/internal/test/client",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_labstack_echo_v4//:echo",
+    ],
+)
+
+go_test(
+    name = "client_test",
+    srcs = ["client_test.go"],
+    embed = [":client"],
+    deps = ["@com_github_stretchr_testify//assert"],
+)

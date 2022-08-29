@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "issue-312",
+    srcs = [
+        "doc.go",
+        "issue.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/sgnl/internal/test/issues/issue-312",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "@com_github_deepmap_oapi_codegen//pkg/runtime:go_default_library",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_labstack_echo_v4//:echo",
+    ],
+)
+
+go_test(
+    name = "issue-312_test",
+    srcs = ["issue_test.go"],
+    embed = [":issue-312"],
+    deps = [
+        "@com_github_labstack_echo_v4//:echo",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//mock",
+        "@com_github_stretchr_testify//require",
+    ],
+)
