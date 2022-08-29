@@ -6,10 +6,10 @@ go_library(
         "doc.go",
         "externalref.gen.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/externalref/packageA",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/externalref/packageA",
     visibility = ["//:__subpackages__"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//internal/test/externalref/packageB:go_default_library",
+        "//internal/test/externalref/packageB",
         "@com_github_getkin_kin_openapi//openapi3",
     ],
 )

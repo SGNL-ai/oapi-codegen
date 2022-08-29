@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "ecdsafile",
     srcs = ["ecdsafile.go"],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/ecdsafile",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/ecdsafile",
     visibility = ["//visibility:public"],
 )

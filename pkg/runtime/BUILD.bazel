@@ -9,9 +9,9 @@ go_library(
         "deepobject.go",
         "styleparam.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/runtime",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/runtime",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_deepmap_oapi_codegen//pkg/types:go_default_library"],
+    deps = ["//pkg/types"],
 )
 
 go_test(
@@ -24,7 +24,7 @@ go_test(
     ],
     embed = [":runtime"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//pkg/types:go_default_library",
+        "//pkg/types",
         "@com_github_stretchr_testify//assert",
         "@com_github_stretchr_testify//require",
     ],

@@ -6,7 +6,7 @@ go_library(
         "inputmapping.go",
         "loader.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/util",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/util",
     visibility = ["//visibility:public"],
     deps = ["@com_github_getkin_kin_openapi//openapi3"],
 )

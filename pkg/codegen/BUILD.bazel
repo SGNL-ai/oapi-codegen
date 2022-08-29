@@ -36,7 +36,7 @@ go_library(
         "templates/request-bodies.tmpl",
         "templates/typedef.tmpl",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/codegen",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/codegen",
     visibility = ["//visibility:public"],
     deps = [
         "@com_github_getkin_kin_openapi//openapi3",
@@ -58,8 +58,8 @@ go_test(
     embed = [":codegen"],
     embedsrcs = ["test_spec.yaml"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//examples/petstore-expanded:go_default_library",
-        "@com_github_deepmap_oapi_codegen//examples/petstore-expanded/echo/api:go_default_library",
+        "//examples/petstore-expanded",
+        "//examples/petstore-expanded/echo/api",
         "@com_github_getkin_kin_openapi//openapi3",
         "@com_github_golangci_lint_1//:lint-1",
         "@com_github_stretchr_testify//assert",

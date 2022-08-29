@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "gin-middleware",
     srcs = ["oapi_validate.go"],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/gin-middleware",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/gin-middleware",
     visibility = ["//visibility:public"],
     deps = [
         "@com_github_getkin_kin_openapi//openapi3",
@@ -20,7 +20,7 @@ go_test(
     embed = [":gin-middleware"],
     embedsrcs = ["test_spec.yaml"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//pkg/testutil:go_default_library",
+        "//pkg/testutil",
         "@com_github_getkin_kin_openapi//openapi3",
         "@com_github_getkin_kin_openapi//openapi3filter",
         "@com_github_gin_gonic_gin//:gin",

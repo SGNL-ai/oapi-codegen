@@ -12,8 +12,8 @@ import (
 	"github.com/golangci/lint-1"
 	"github.com/stretchr/testify/assert"
 
-	examplePetstoreClient "github.com/deepmap/oapi-codegen/examples/petstore-expanded"
-	examplePetstore "github.com/deepmap/oapi-codegen/examples/petstore-expanded/echo/api"
+	examplePetstoreClient "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded"
+	examplePetstore "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/echo/api"
 )
 
 func TestExamplePetStoreCodeGeneration(t *testing.T) {

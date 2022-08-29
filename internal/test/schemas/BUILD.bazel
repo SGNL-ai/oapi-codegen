@@ -6,10 +6,10 @@ go_library(
         "doc.go",
         "schemas.gen.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/schemas",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/schemas",
     visibility = ["//:__subpackages__"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//pkg/runtime:go_default_library",
+        "//pkg/runtime",
         "@com_github_getkin_kin_openapi//openapi3",
         "@com_github_labstack_echo_v4//:echo",
         "@in_gopkg_yaml_v2//:yaml_v2",

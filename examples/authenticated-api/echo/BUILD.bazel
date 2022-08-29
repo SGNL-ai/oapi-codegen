@@ -3,11 +3,11 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 go_library(
     name = "echo_lib",
     srcs = ["main.go"],
-    importpath = "github.com/sgnl-ai/sgnl/examples/authenticated-api/echo",
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/authenticated-api/echo",
     visibility = ["//visibility:private"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//examples/authenticated-api/echo/api:go_default_library",
-        "@com_github_deepmap_oapi_codegen//examples/authenticated-api/echo/server:go_default_library",
+        "//examples/authenticated-api/echo/api",
+        "//examples/authenticated-api/echo/server",
         "@com_github_labstack_echo_v4//:echo",
         "@com_github_labstack_echo_v4//middleware",
     ],

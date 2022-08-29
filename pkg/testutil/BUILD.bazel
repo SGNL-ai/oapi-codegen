@@ -6,7 +6,7 @@ go_library(
         "request_helpers.go",
         "response_handlers.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/testutil",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/testutil",
     visibility = ["//visibility:public"],
     deps = ["@com_github_labstack_echo_v4//:echo"],
 )

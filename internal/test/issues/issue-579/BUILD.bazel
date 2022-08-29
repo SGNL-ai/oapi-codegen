@@ -6,9 +6,9 @@ go_library(
         "gen.go",
         "issue.gen.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/issues/issue-579",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/issues/issue-579",
     visibility = ["//:__subpackages__"],
-    deps = ["@com_github_deepmap_oapi_codegen//pkg/types:go_default_library"],
+    deps = ["//pkg/types"],
 )
 
 go_test(

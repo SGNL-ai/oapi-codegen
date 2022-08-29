@@ -6,7 +6,7 @@ go_library(
         "components.gen.go",
         "doc.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/components",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/components",
     visibility = ["//:__subpackages__"],
     deps = ["@com_github_getkin_kin_openapi//openapi3"],
 )

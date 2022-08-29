@@ -6,7 +6,7 @@ go_library(
         "api.gen.go",
         "doc.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/examples/authenticated-api/echo/api",
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/authenticated-api/echo/api",
     visibility = ["//visibility:public"],
     deps = [
         "@com_github_getkin_kin_openapi//openapi3",

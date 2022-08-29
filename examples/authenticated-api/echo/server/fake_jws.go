@@ -4,11 +4,11 @@ import (
 	"crypto/ecdsa"
 	"fmt"
 
-	"github.com/deepmap/oapi-codegen/pkg/ecdsafile"
 	"github.com/lestrrat-go/jwx/jwa"
 	"github.com/lestrrat-go/jwx/jwk"
 	"github.com/lestrrat-go/jwx/jws"
 	"github.com/lestrrat-go/jwx/jwt"
+	"github.com/sgnl-ai/oapi-codegen/pkg/ecdsafile"
 )
 
 // PrivateKey is an ECDSA private key which was generated with the following

@@ -6,7 +6,7 @@ go_library(
         "doc.go",
         "issue.gen.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/issues/issue-illegal_enum_names",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/issues/issue-illegal_enum_names",
     visibility = ["//:__subpackages__"],
     deps = [
         "@com_github_getkin_kin_openapi//openapi3",
@@ -19,7 +19,7 @@ go_test(
     srcs = ["issue_test.go"],
     embed = [":issue-illegal_enum_names"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//pkg/codegen:go_default_library",
+        "//pkg/codegen",
         "@com_github_getkin_kin_openapi//openapi3",
         "@com_github_stretchr_testify//require",
     ],

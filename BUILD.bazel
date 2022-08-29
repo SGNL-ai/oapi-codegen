@@ -1,6 +1,6 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/sgnl-ai/sgnl
+# gazelle:prefix github.com/sgnl-ai/oapi-codegen
 # gazelle:repository_macro deps.bzl%defName
 # gazelle:proto disable_global
 

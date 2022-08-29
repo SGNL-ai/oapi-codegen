@@ -7,10 +7,10 @@ go_library(
         "petstore-server.gen.go",
         "petstore-types.gen.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/examples/petstore-expanded/gin/api",
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/gin/api",
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//pkg/runtime:go_default_library",
+        "//pkg/runtime",
         "@com_github_getkin_kin_openapi//openapi3",
         "@com_github_gin_gonic_gin//:gin",
     ],

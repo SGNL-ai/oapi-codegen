@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "internal",
     srcs = ["doc.go"],
-    importpath = "github.com/sgnl-ai/sgnl/examples/petstore-expanded/internal",
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/internal",
     visibility = ["//examples/petstore-expanded:__subpackages__"],
 )

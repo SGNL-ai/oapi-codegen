@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "petstore-expanded",
     srcs = ["petstore-client.gen.go"],
-    importpath = "github.com/sgnl-ai/sgnl/examples/petstore-expanded",
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_deepmap_oapi_codegen//pkg/runtime:go_default_library"],
+    deps = ["//pkg/runtime"],
 )

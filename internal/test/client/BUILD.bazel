@@ -6,7 +6,7 @@ go_library(
         "client.gen.go",
         "doc.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/client",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/client",
     visibility = ["//:__subpackages__"],
     deps = [
         "@com_github_getkin_kin_openapi//openapi3",

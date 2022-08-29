@@ -8,7 +8,7 @@ go_library(
         "regexes.go",
         "uuid.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/pkg/types",
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/types",
     visibility = ["//visibility:public"],
     deps = ["@com_github_google_uuid//:uuid"],
 )

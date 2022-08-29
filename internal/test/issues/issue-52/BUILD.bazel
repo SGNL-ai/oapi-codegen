@@ -6,7 +6,7 @@ go_library(
         "doc.go",
         "issue.gen.go",
     ],
-    importpath = "github.com/sgnl-ai/sgnl/internal/test/issues/issue-52",
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/issues/issue-52",
     visibility = ["//:__subpackages__"],
     deps = [
         "@com_github_getkin_kin_openapi//openapi3",
@@ -20,7 +20,7 @@ go_test(
     embed = [":issue-52"],
     embedsrcs = ["spec.yaml"],
     deps = [
-        "@com_github_deepmap_oapi_codegen//pkg/codegen:go_default_library",
+        "//pkg/codegen",
         "@com_github_getkin_kin_openapi//openapi3",
         "@com_github_stretchr_testify//require",
     ],
