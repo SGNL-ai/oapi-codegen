@@ -1,0 +1,11 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "issue-head-digit-of-httpheader",
+    srcs = [
+        "doc.go",
+        "issue.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/issues/issue-head-digit-of-httpheader",
+    visibility = ["//:__subpackages__"],
+)

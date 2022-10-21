@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "packageA",
+    srcs = [
+        "doc.go",
+        "externalref.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/externalref/packageA",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//internal/test/externalref/packageB",
+        "@com_github_getkin_kin_openapi//openapi3",
+    ],
+)

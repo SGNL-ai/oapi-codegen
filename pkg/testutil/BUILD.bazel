@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "testutil",
+    srcs = [
+        "request_helpers.go",
+        "response_handlers.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/testutil",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_labstack_echo_v4//:echo"],
+)

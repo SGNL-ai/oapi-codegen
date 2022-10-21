@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "client",
+    srcs = [
+        "client.gen.go",
+        "client.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/strict-server/client",
+    visibility = ["//:__subpackages__"],
+    deps = ["//pkg/runtime"],
+)

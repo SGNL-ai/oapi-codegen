@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "securityprovider",
+    srcs = ["securityprovider.go"],
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/securityprovider",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "securityprovider_test",
+    srcs = ["securityprovider_test.go"],
+    embed = [":securityprovider"],
+    deps = [
+        "//internal/test/client",
+        "@com_github_stretchr_testify//assert",
+    ],
+)

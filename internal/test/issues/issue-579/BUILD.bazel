@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "issue-579",
+    srcs = [
+        "gen.go",
+        "issue.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/issues/issue-579",
+    visibility = ["//:__subpackages__"],
+    deps = ["//pkg/types"],
+)
+
+go_test(
+    name = "issue-579_test",
+    srcs = ["issue_test.go"],
+    embed = [":issue-579"],
+    deps = ["@com_github_stretchr_testify//require"],
+)

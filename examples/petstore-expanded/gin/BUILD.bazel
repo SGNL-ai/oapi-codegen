@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+
+go_library(
+    name = "gin_lib",
+    srcs = ["petstore.go"],
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/gin",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//examples/petstore-expanded/gin/api",
+        "//pkg/gin-middleware",
+        "@com_github_gin_gonic_gin//:gin",
+    ],
+)
+
+go_binary(
+    name = "gin",
+    embed = [":gin_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "gin_test",
+    srcs = ["petstore_test.go"],
+    embed = [":gin_lib"],
+    deps = [
+        "//examples/petstore-expanded/gin/api",
+        "//pkg/testutil",
+        "@com_github_stretchr_testify//assert",
+    ],
+)

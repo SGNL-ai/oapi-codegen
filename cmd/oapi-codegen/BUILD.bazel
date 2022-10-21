@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+
+go_library(
+    name = "oapi-codegen_lib",
+    srcs = ["oapi-codegen.go"],
+    importpath = "github.com/sgnl-ai/oapi-codegen/cmd/oapi-codegen",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/codegen",
+        "//pkg/util",
+        "@in_gopkg_yaml_v2//:yaml_v2",
+    ],
+)
+
+go_binary(
+    name = "oapi-codegen",
+    embed = [":oapi-codegen_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "oapi-codegen_test",
+    srcs = ["oapi-codegen_test.go"],
+    embed = [":oapi-codegen_lib"],
+    deps = ["//pkg/util"],
+)

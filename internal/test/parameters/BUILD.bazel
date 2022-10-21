@@ -1,0 +1,29 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "parameters",
+    srcs = [
+        "doc.go",
+        "parameters.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/parameters",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//pkg/runtime",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_labstack_echo_v4//:echo",
+    ],
+)
+
+go_test(
+    name = "parameters_test",
+    srcs = ["parameters_test.go"],
+    embed = [":parameters"],
+    deps = [
+        "//pkg/testutil",
+        "@com_github_labstack_echo_v4//:echo",
+        "@com_github_labstack_echo_v4//middleware",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

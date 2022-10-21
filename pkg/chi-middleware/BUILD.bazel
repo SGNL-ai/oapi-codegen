@@ -1,0 +1,29 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "chi-middleware",
+    srcs = ["oapi_validate.go"],
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/chi-middleware",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_getkin_kin_openapi//openapi3filter",
+        "@com_github_getkin_kin_openapi//routers",
+        "@com_github_getkin_kin_openapi//routers/gorillamux",
+    ],
+)
+
+go_test(
+    name = "chi-middleware_test",
+    srcs = ["oapi_validate_test.go"],
+    embed = [":chi-middleware"],
+    embedsrcs = ["test_spec.yaml"],
+    deps = [
+        "//pkg/testutil",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_getkin_kin_openapi//openapi3filter",
+        "@com_github_go_chi_chi_v5//:chi",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "externalref",
+    srcs = [
+        "doc.go",
+        "externalref.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/externalref",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//internal/test/externalref/packageA",
+        "//internal/test/externalref/packageB",
+        "@com_github_getkin_kin_openapi//openapi3",
+    ],
+)
+
+go_test(
+    name = "externalref_test",
+    srcs = ["imports_test.go"],
+    embed = [":externalref"],
+    deps = [
+        "//internal/test/externalref/packageA",
+        "//internal/test/externalref/packageB",
+        "@com_github_stretchr_testify//require",
+    ],
+)

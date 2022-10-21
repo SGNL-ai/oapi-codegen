@@ -1,0 +1,24 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "server",
+    srcs = [
+        "doc.go",
+        "server.gen.go",
+        "server_moq.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/server",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//pkg/runtime",
+        "//pkg/types",
+        "@com_github_go_chi_chi_v5//:chi",
+    ],
+)
+
+go_test(
+    name = "server_test",
+    srcs = ["server_test.go"],
+    embed = [":server"],
+    deps = ["@com_github_stretchr_testify//assert"],
+)

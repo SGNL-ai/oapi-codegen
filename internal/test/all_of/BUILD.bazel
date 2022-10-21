@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "all_of",
+    srcs = ["doc.go"],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/all_of",
+    visibility = ["//:__subpackages__"],
+)

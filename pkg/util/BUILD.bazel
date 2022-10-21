@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "util",
+    srcs = [
+        "inputmapping.go",
+        "isjson.go",
+        "loader.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/util",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_getkin_kin_openapi//openapi3"],
+)
+
+go_test(
+    name = "util_test",
+    srcs = [
+        "inputmapping_test.go",
+        "isjson_test.go",
+    ],
+    embed = [":util"],
+    deps = [
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

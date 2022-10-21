@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_test")
+
+go_test(
+    name = "strict-server_test",
+    srcs = ["strict_test.go"],
+    deps = [
+        "//internal/test/strict-server/chi",
+        "//internal/test/strict-server/client",
+        "//internal/test/strict-server/echo",
+        "//internal/test/strict-server/gin",
+        "//pkg/runtime",
+        "//pkg/testutil",
+        "@com_github_gin_gonic_gin//:gin",
+        "@com_github_go_chi_chi_v5//:chi",
+        "@com_github_labstack_echo_v4//:echo",
+        "@com_github_stretchr_testify//assert",
+    ],
+)

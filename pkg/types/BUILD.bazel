@@ -1,0 +1,29 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "types",
+    srcs = [
+        "date.go",
+        "email.go",
+        "file.go",
+        "regexes.go",
+        "uuid.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/pkg/types",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_google_uuid//:uuid"],
+)
+
+go_test(
+    name = "types_test",
+    srcs = [
+        "date_test.go",
+        "email_test.go",
+        "uuid_test.go",
+    ],
+    embed = [":types"],
+    deps = [
+        "@com_github_google_uuid//:uuid",
+        "@com_github_stretchr_testify//assert",
+    ],
+)

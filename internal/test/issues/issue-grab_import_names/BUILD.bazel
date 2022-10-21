@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "issue-grab_import_names",
+    srcs = [
+        "doc.go",
+        "issue.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/issues/issue-grab_import_names",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//pkg/runtime",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_labstack_echo_v4//:echo",
+    ],
+)
+
+go_test(
+    name = "issue-grab_import_names_test",
+    srcs = ["issue_test.go"],
+    embed = [":issue-grab_import_names"],
+    deps = [
+        "//pkg/codegen",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_stretchr_testify//require",
+    ],
+)

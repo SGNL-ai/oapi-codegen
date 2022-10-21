@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "chi",
+    srcs = [
+        "server.gen.go",
+        "server.go",
+        "types.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/strict-server/chi",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//pkg/runtime",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_go_chi_chi_v5//:chi",
+    ],
+)

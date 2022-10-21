@@ -1,0 +1,33 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+
+go_library(
+    name = "chi_lib",
+    srcs = ["petstore.go"],
+    importpath = "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/chi",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//examples/petstore-expanded/chi/api",
+        "//pkg/chi-middleware",
+        "@com_github_go_chi_chi_v5//:chi",
+    ],
+)
+
+go_binary(
+    name = "chi",
+    embed = [":chi_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "chi_test",
+    srcs = ["petstore_test.go"],
+    embed = [":chi_lib"],
+    deps = [
+        "//examples/petstore-expanded/chi/api",
+        "//pkg/chi-middleware",
+        "//pkg/testutil",
+        "@com_github_go_chi_chi_v5//:chi",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

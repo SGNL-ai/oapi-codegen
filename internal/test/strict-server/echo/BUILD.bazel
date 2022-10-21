@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "echo",
+    srcs = [
+        "server.gen.go",
+        "server.go",
+        "types.gen.go",
+    ],
+    importpath = "github.com/sgnl-ai/oapi-codegen/internal/test/strict-server/echo",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//pkg/runtime",
+        "@com_github_getkin_kin_openapi//openapi3",
+        "@com_github_labstack_echo_v4//:echo",
+    ],
+)
