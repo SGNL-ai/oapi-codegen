@@ -20,7 +20,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/deepmap/oapi-codegen/pkg/types"
+	"github.com/sgnl-ai/oapi-codegen/pkg/types"
 )
 
 func TestStyleParam(t *testing.T) {

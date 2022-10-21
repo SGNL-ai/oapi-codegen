@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:generate go run github.com/deepmap/oapi-codegen/cmd/oapi-codegen --config=models.cfg.yaml ../../petstore-expanded.yaml
-//go:generate go run github.com/deepmap/oapi-codegen/cmd/oapi-codegen --config=server.cfg.yaml ../../petstore-expanded.yaml
+//go:generate go run github.com/sgnl-ai/oapi-codegen/cmd/oapi-codegen --config=models.cfg.yaml ../../petstore-expanded.yaml
+//go:generate go run github.com/sgnl-ai/oapi-codegen/cmd/oapi-codegen --config=server.cfg.yaml ../../petstore-expanded.yaml
 
 package api
 
@@ -24,7 +24,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/deepmap/oapi-codegen/examples/petstore-expanded/echo/api/models"
+	"github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/echo/api/models"
 )
 
 type PetStore struct {

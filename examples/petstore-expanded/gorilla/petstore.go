@@ -11,8 +11,8 @@ import (
 	"net/http"
 	"os"
 
-	api "github.com/deepmap/oapi-codegen/examples/petstore-expanded/gorilla/api"
-	middleware "github.com/deepmap/oapi-codegen/pkg/chi-middleware"
+	api "github.com/sgnl-ai/oapi-codegen/examples/petstore-expanded/gorilla/api"
+	middleware "github.com/sgnl-ai/oapi-codegen/pkg/chi-middleware"
 	"github.com/gorilla/mux"
 )
 
