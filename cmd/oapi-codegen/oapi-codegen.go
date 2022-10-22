@@ -23,6 +23,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
+	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/sgnl-ai/oapi-codegen/pkg/codegen"
 	"github.com/sgnl-ai/oapi-codegen/pkg/util"
 )
@@ -51,6 +52,9 @@ var (
 	flagExcludeSchemas     string
 	flagResponseTypeSuffix string
 	flagAliasTypes         bool
+
+	// SGNL.ai-specific flags.
+	flagCircularReferenceCounter int
 )
 
 type configuration struct {
@@ -96,6 +100,7 @@ func main() {
 	flag.StringVar(&flagExcludeSchemas, "exclude-schemas", "", "A comma separated list of schemas which must be excluded from generation")
 	flag.StringVar(&flagResponseTypeSuffix, "response-type-suffix", "", "the suffix used for responses types")
 	flag.BoolVar(&flagAliasTypes, "alias-types", false, "Alias type declarations of possible")
+	flag.IntVar(&flagCircularReferenceCounter, "circular-reference-counter", 3, "Maximum number of circular references between schemas")
 
 	flag.Parse()
 
@@ -238,6 +243,8 @@ func main() {
 		return
 	}
 
+	openapi3.CircularReferenceCounter = opts.CircularReferenceCounter
+
 	swagger, err := util.LoadSwagger(flag.Arg(0))
 	if err != nil {
 		errExit("error loading swagger spec in %s\n: %s", flag.Arg(0), err)
@@ -300,6 +307,9 @@ func loadTemplateOverrides(templatesDir string) (map[string]string, error) {
 func updateConfigFromFlags(cfg configuration) (configuration, error) {
 	if flagPackageName != "" {
 		cfg.PackageName = flagPackageName
+	}
+	if flagCircularReferenceCounter > 0 {
+		cfg.CircularReferenceCounter = flagCircularReferenceCounter
 	}
 
 	var unsupportedFlags []string

@@ -18,6 +18,9 @@ type Configuration struct {
 	OutputOptions     OutputOptions        `yaml:"output-options,omitempty"`
 	ImportMapping     map[string]string    `yaml:"import-mapping,omitempty"` // ImportMapping specifies the golang package path for each external reference
 	AdditionalImports []AdditionalImport   `yaml:"additional-imports,omitempty"`
+
+	// SGNL.ai-specific options.
+	CircularReferenceCounter int `yaml:"circular-reference-counter"`
 }
 
 // GenerateOptions specifies which supported output formats to generate.
@@ -87,6 +90,9 @@ func (o Configuration) UpdateDefaults() Configuration {
 			EmbeddedSpec: true,
 		}
 	}
+	if o.CircularReferenceCounter == -1 {
+		o.CircularReferenceCounter = 3
+	}
 	return o
 }
 
@@ -94,6 +100,9 @@ func (o Configuration) UpdateDefaults() Configuration {
 func (o Configuration) Validate() error {
 	if o.PackageName == "" {
 		return errors.New("package name must be specified")
+	}
+	if o.CircularReferenceCounter < 3 {
+		return errors.New("circular reference counter must be >=3")
 	}
 
 	// Only one server type should be specified at a time.
